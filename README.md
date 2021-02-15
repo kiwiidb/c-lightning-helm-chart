@@ -1,4 +1,4 @@
-# C-Lightning
+# C-Lightning Helm chart
 
 [C-Lightning](https://github.com/elementsproject/lightning) is an implementation of a
 Lightning Network Node. The Lightning Network is a "Layer 2" payment protocol
@@ -7,14 +7,19 @@ peer-to-peer system for making micropayments of cryptocurrency through a
 network of bidirectional payment channels without delegating custody of funds.
 
 ## Introduction
+Based on [Fold's lnd chart](https://github.com/thesis/helm-charts)
 
-This chart bootstraps a single C-Lightning node. The default docker image is taken from
+This chart bootstraps a C-Lightning node. The default docker image is taken from
 [Kwinten De Backer](https://hub.docker.com/r/kiwiidb/c-lightning)'s dockerhub
-repository. The docker image is the one from https://github.com/lightningd/plugins.It runs a mainnet node
+repository. The docker image is the one from https://github.com/lightningd/plugins. It runs a mainnet node
 with the [Sauron](https://github.com/lightningd/plugins/tree/master/sauron) plugin installed, which relies
 on [our Blockstream overlords](https://blockstream.info) to fetch blocks (so no local bitcoind is required).
 Of course this is antithetical to everything bitcoin is about but hey if I want to do this who is going to stop me.
 I'll set up my own Esplora one day, I promise.
+
+**Disclaimers**
+- The _sauron_ plugin is still work in progress. While syncing blocks the plugin can crash from time to time, but when it is synced to the chain it seems stable 
+- For security and performance reasons you should run your own Esplora instance, ideally in the same cluster as the C-lightning node.
 
 You can create a secret with an extra c-lightning config file. Eg. if you want to use a postgres database:
 
@@ -23,7 +28,6 @@ echo "wallet=postgres://YOUR_POSTGRES_CONNECTION_STRING" >> lightning.conf
 kubectl create secret generic c-lightning-extra-config --from-file=./lightning.conf
 ```
 
-This chart is based on [Fold's c-lightning chart](https://github.com/thesis/helm-charts)
 ## Prerequisites
 
 * Kubernetes 1.8+
