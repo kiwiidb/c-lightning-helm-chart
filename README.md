@@ -12,7 +12,7 @@ This chart bootstraps a single C-Lightning node. The default docker image is tak
 [Kwinten De Backer](https://hub.docker.com/r/kiwiidb/c-lightning)'s dockerhub
 repository. It runs a mainnet node, using a postgres database for channel management,
 with the [Sauron](https://github.com/lightningd/plugins/tree/master/sauron) plugin installed, which relies
-on [](https://blockstream.info) to fetch blocks (so no local bitcoind is required).
+on [our Blockstream overlords](https://blockstream.info) to fetch blocks (so no local bitcoind is required).
 Of course this is antithetical to everything bitcoin is about but hey if I want to do this who is going to stop me.
 I'll set up my own Esplora one day, I promise.
 
