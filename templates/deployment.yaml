@@ -24,7 +24,13 @@ spec:
         - name: {{ template "c-lightning.fullname" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-          args: "--disable-plugin bcli --plugin /opt/lightningd/plugins/sauron/sauron.py --sauron-api-endpoint {{ .Values.sauron.endpoint}} {{ .Values.extraArgs }}"
+          args:
+            - "--disable-plugin=bcli" 
+            - "--plugin=/opt/lightningd/plugins/sauron/sauron.py"
+            - "--sauron-api-endpoint={{ .Values.sauron.endpoint}}"
+            {{ if .Values.extraConfig.enabled }}
+            - "--conf=/root/config/lightning.conf"
+            {{ end }}
           resources:
   {{ toYaml .Values.resources | indent 10 }}
           ports:
@@ -35,6 +41,10 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /root/.lightning
+            {{ if .Values.extraConfig.enabled }}
+            - name: config
+              mountPath: /root/config
+            {{ end }}
           lifecycle:
             preStop:
               exec:
@@ -49,3 +59,10 @@ spec:
         {{- else }}
           emptyDir: {}
         {{- end -}}
+        {{ if .Values.extraConfig.enabled }}
+        - name: config
+          projected:
+            sources:
+            - secret:
+                name: {{ .Values.extraConfig.secretName }}
+        {{ end }}

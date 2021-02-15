@@ -4,7 +4,7 @@
 
 image:
   repository: kiwiidb/c-lightning
-  tag: v0.9.3
+  tag: 0.9.3
   pullPolicy: IfNotPresent
 
 # Ports that are exposed to other pods in your cluster
@@ -15,9 +15,13 @@ internalServices:
 externalServices:
   p2pPort: 9735
 
-extraArgs: "--log-level debug"
 sauron:
   endpoint: https://blockstream.info/api
+
+extraConfig:
+  enabled: true
+  secretName: c-lightning-extra-config
+
 persistence:
   enabled: true
   ## database data Persistent Volume Storage Class

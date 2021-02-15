@@ -28,7 +28,9 @@ This chart is based on [Fold's c-lightning chart](https://github.com/thesis/helm
 To install the chart with the release name `my-release`:
 
 ```
-$ helm install --name my-release kiwiidb/c-lightning
+$ git clone https://github.com/kiwiidb/c-lightning-helm-chart
+$ cd c-lightning-helm-chart
+$ helm install --name my-release .
 ```
 ## Configuration
 
@@ -44,8 +46,8 @@ Parameter                  | Description                        | Default
 `externalServices.p2pPort` | P2P Port                           | `9735`
 `persistence.enabled`      | Save node state                    | `true`
 `persistence.accessMode`   | ReadWriteOnce or ReadOnly          | `ReadWriteOnce`
-`postgres.credentials.existingSecret`   | Secret with key connectionString and value the postgres connectionString| `c-lightning-postgres`
+`extraConfig.enabled`   | If you want to mount a secret as extra c-lightning config file | `true`
+`extraConfig.secret`   | Secret which contains extra c-ln config. Secret should have key `lightning.conf`| `c-lightning-extra-config`
 `sauron.endpoint`   | Sauron API endpoint          | `https://blockstream.info/api`
-`extraArgs`   | C-Lightning extra args | `--log-level debug`
 `persistence.size`         | Size of persistent volume claim    | `5Gi`
 `resources`                | CPU/Memory resource requests/limits| `{}`
