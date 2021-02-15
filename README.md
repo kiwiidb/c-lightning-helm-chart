@@ -28,7 +28,7 @@ This chart is based on [Fold's c-lightning chart](https://github.com/thesis/helm
 
 * Kubernetes 1.8+
 * PV provisioner support (for the `.lightning` directory)
-* A Postgres database
+* (Optional) A Postgres database
 
 ## Installing the Chart
 
