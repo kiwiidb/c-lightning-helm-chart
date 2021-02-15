@@ -2,11 +2,11 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "lnd.fullname" . }}
+  name: {{ template "c-lightning.fullname" . }}
   annotations:
     "helm.sh/resource-policy": keep
   labels:
-    app: {{ template "lnd.name" . }}
+    app: {{ template "c-lightning.name" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"

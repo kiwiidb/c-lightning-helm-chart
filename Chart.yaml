@@ -1,17 +1,17 @@
 apiVersion: v1
-appVersion: 0.10.1
+appVersion: 0.9.3
 description: A C implementation of a Lightning Network node
 engine: gotpl
-home: https://github.com/elementsproject/lnd
+home: https://github.com/elementsproject/c-lightning
 keywords:
-- lnd
+- c-lightning
 - cryptocurrency
 - blockchain
 - bitcoin
 maintainers:
-- email: tdickman@gmail.com
-  name: tdickman
-name: lnd
+- email: kwinten.debacker@hotmail.com
+  name: kiwiidb
+name: c-lightning
 sources:
 - https://github.com/kubernetes/charts
-version: 0.2.21
+version: 0.1.0

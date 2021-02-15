@@ -10,13 +10,13 @@ network of bidirectional payment channels without delegating custody of funds.
 
 This chart bootstraps a single C-Lightning node. The default docker image is taken from
 [Kwinten De Backer](https://hub.docker.com/r/kiwiidb/c-lightning)'s dockerhub
-repository. It runs a mainnet node, using a postgres database for channel management,
+repository. I intentionally made opionated choices: it runs a mainnet node, using a postgres database for channel management,
 with the [Sauron](https://github.com/lightningd/plugins/tree/master/sauron) plugin installed, which relies
 on [our Blockstream overlords](https://blockstream.info) to fetch blocks (so no local bitcoind is required).
 Of course this is antithetical to everything bitcoin is about but hey if I want to do this who is going to stop me.
 I'll set up my own Esplora one day, I promise.
 
-This chart is based on [Fold's LND chart](https://github.com/thesis/helm-charts)
+This chart is based on [Fold's c-lightning chart](https://github.com/thesis/helm-charts)
 ## Prerequisites
 
 * Kubernetes 1.8+
@@ -38,7 +38,7 @@ their default values.
 Parameter                  | Description                        | Default
 -----------------------    | ---------------------------------- | ----------------------------------------------------------
 `image.repository`         | Image source repository name       | `kiwiidb/c-lightning`
-`image.tag`                | `lnd` release tag.                 | `v0.9.3`
+`image.tag`                | `c-lightning` release tag.                 | `v0.9.3`
 `image.pullPolicy`         | Image pull policy                  | `IfNotPresent`
 `internalServices.rpcPort` | RPC Port                           | `9835`
 `externalServices.p2pPort` | P2P Port                           | `9735`

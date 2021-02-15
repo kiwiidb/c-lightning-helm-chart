@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "lnd.fullname" . }}-internal
+  name: {{ template "c-lightning.fullname" . }}-internal
   labels:
-    app: {{ template "lnd.name" . }}
-    chart: {{ template "lnd.chart" . }}
+    app: {{ template "c-lightning.name" . }}
+    chart: {{ template "c-lightning.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -13,16 +13,16 @@ spec:
       port: {{ .Values.internalServices.rpcPort }}
       targetPort: rpc
   selector:
-    app: {{ template "lnd.name" . }}
+    app: {{ template "c-lightning.name" . }}
     release: {{ .Release.Name }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "lnd.fullname" . }}-external
+  name: {{ template "c-lightning.fullname" . }}-external
   labels:
-    app: {{ template "lnd.name" . }}
-    chart: {{ template "lnd.chart" . }}
+    app: {{ template "c-lightning.name" . }}
+    chart: {{ template "c-lightning.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -32,5 +32,5 @@ spec:
       port: {{ .Values.externalServices.p2pPort }}
       targetPort: p2p
   selector:
-    app: {{ template "lnd.name" . }}
+    app: {{ template "c-lightning.name" . }}
     release: {{ .Release.Name }}
