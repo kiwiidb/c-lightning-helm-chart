@@ -1,0 +1,17 @@
+apiVersion: v1
+appVersion: 0.10.1
+description: A C implementation of a Lightning Network node
+engine: gotpl
+home: https://github.com/elementsproject/lnd
+keywords:
+- lnd
+- cryptocurrency
+- blockchain
+- bitcoin
+maintainers:
+- email: tdickman@gmail.com
+  name: tdickman
+name: lnd
+sources:
+- https://github.com/kubernetes/charts
+version: 0.2.21
