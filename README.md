@@ -51,7 +51,7 @@ their default values.
 Parameter                  | Description                        | Default
 -----------------------    | ---------------------------------- | ----------------------------------------------------------
 `image.repository`         | Image source repository name       | `kiwiidb/c-lightning`
-`image.tag`                | `c-lightning` release tag.                 | `v0.9.3`
+`image.tag`                | `c-lightning` release tag.                 | `0.9.3`
 `image.pullPolicy`         | Image pull policy                  | `IfNotPresent`
 `internalServices.rpcPort` | RPC Port                           | `9835`
 `externalServices.p2pPort` | P2P Port                           | `9735`
