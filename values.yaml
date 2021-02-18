@@ -4,7 +4,7 @@
 
 image:
   repository: kiwiidb/c-lightning
-  tag: 0.9.3
+  tag: 0.9.4
   pullPolicy: IfNotPresent
 
 # Ports that are exposed to other pods in your cluster
@@ -14,9 +14,6 @@ internalServices:
 # Ports that are visible outside your cluster
 externalServices:
   p2pPort: 9735
-
-sauron:
-  endpoint: https://blockstream.info/api
 
 extraConfig:
   enabled: true

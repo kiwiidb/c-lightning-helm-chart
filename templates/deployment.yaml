@@ -26,8 +26,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           args:
             - "--disable-plugin=bcli" 
-            - "--plugin=/opt/lightningd/plugins/sauron/sauron.py"
-            - "--sauron-api-endpoint={{ .Values.sauron.endpoint}}"
+            - "--plugin=/opt/lightningd/plugins/trustedcoin_linux_amd64"
             {{ if .Values.extraConfig.enabled }}
             - "--conf=/root/config/lightning.conf"
             {{ end }}
