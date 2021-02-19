@@ -4,7 +4,7 @@
 
 image:
   repository: kiwiidb/c-lightning
-  tag: 0.9.4
+  tag: 0.9.5
   pullPolicy: IfNotPresent
 
 # Ports that are exposed to other pods in your cluster
@@ -15,6 +15,9 @@ internalServices:
 externalServices:
   p2pPort: 9735
 
+boltz:
+  api: https://boltz.exchange/api
+  node: 026165850492521f4ac8abd9bd8088123446d126f648ca35e60f88177dc149ceb2
 extraConfig:
   enabled: true
   secretName: c-lightning-extra-config

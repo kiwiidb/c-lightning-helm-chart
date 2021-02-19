@@ -27,6 +27,11 @@ spec:
           args:
             - "--disable-plugin=bcli" 
             - "--plugin=/opt/lightningd/plugins/trustedcoin_linux_amd64"
+            - "--plugin=/opt/lightningd/plugins/sparko_linux_amd64"
+            - "--plugin=/opt/lightningd/plugins/channel-creation.py"
+            - "--sparko-host=0.0.0.0"
+            - "--boltz-api={{ .Values.boltz.api }}"
+            - "--boltz-node={{ .Values.boltz.node }}"
             {{ if .Values.extraConfig.enabled }}
             - "--conf=/root/config/lightning.conf"
             {{ end }}
