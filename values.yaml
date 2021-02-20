@@ -9,7 +9,7 @@ image:
 
 # Ports that are exposed to other pods in your cluster
 internalServices:
-  rpcPort: 9835
+  rpcPort: 9737
 
 # Ports that are visible outside your cluster
 externalServices:
