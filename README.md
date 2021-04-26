@@ -12,13 +12,13 @@ Based on [Fold's lnd chart](https://github.com/thesis/helm-charts)
 This chart bootstraps a C-Lightning node. The default docker image is taken from
 [Kwinten De Backer](https://hub.docker.com/r/kiwiidb/c-lightning)'s dockerhub
 repository. The docker image is the one from https://github.com/lightningd/plugins. It runs a mainnet node
-with the [Sauron](https://github.com/lightningd/plugins/tree/master/sauron) plugin installed, which relies
+with the [trustedcoin](https://github.com/fiatjaf/trustedcoin) plugin installed, which relies
 on [our Blockstream overlords](https://blockstream.info) to fetch blocks (so no local bitcoind is required).
 Of course this is antithetical to everything bitcoin is about but hey if I want to do this who is going to stop me.
-I'll set up my own Esplora one day, I promise.
+This setup is to be prefered when deploying a node on k8s, because you can bootstrap the node quickly and then switch to your own node if needed,
+which you can run completely seperate from C-LN.
 
 **Disclaimers**
-- The _sauron_ plugin is still work in progress. While syncing blocks the plugin can crash from time to time, but when it is synced to the chain it seems stable 
 - For security and performance reasons you should run your own Esplora instance, ideally in the same cluster as the C-lightning node.
 
 You can create a secret with an extra c-lightning config file. Eg. if you want to use a postgres database:
