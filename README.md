@@ -57,6 +57,7 @@ Parameter                  | Description                        | Default
 `externalServices.p2pPort` | P2P Port                           | `9735`
 `persistence.enabled`      | Save node state                    | `true`
 `persistence.accessMode`   | ReadWriteOnce or ReadOnly          | `ReadWriteOnce`
+`persistence.storageClass` | Name for StorageClass.             | nil
 `extraConfig.enabled`   | If you want to mount a secret as extra c-lightning config file | `true`
 `extraConfig.secret`   | Secret which contains extra c-ln config. Secret should have key `lightning.conf`| `c-lightning-extra-config`
 `sauron.endpoint`   | Sauron API endpoint          | `https://blockstream.info/api`
